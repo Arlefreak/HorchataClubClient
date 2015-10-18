@@ -1,0 +1,36 @@
+{
+  "name": "HorchataClub",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Arlefreak/HorchataClubClient",
+  "authors": [
+    "Arlefreak <arlefreak@gmail.com>"
+  ],
+  "description": "HorchataClub front end client",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "HorchataClub",
+    "client",
+    "frontend"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "backbone": "~1.2.3",
+    "react": "~0.14.0",
+    "jquery": "~2.1.4",
+    "underscore": "~1.8.3",
+    "localstorage": "~1.4.2",
+    "backbone.localStorage": "Backbone.localStorage#~1.1.16",
+    "flux": "~2.1.1"
+  }
+}
