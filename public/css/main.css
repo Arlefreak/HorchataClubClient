@@ -465,7 +465,6 @@ body .wrapper {
 @media screen and (min-width: 640px) {
   .soon h1 {
     font-size: 5em;
-    margin: auto;
   }
 }
 .soon h2 {
