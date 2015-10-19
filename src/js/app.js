@@ -3,5 +3,7 @@ var $         = window.$;
 var ListView  = require('./views/list');
 
 $(function() {
-    var l = new ListView();
+    particlesJS.load('particles-js', '../json/particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
 });

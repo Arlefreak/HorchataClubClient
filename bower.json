@@ -32,5 +32,8 @@
     "localstorage": "~1.4.2",
     "backbone.localStorage": "Backbone.localStorage#~1.1.16",
     "flux": "~2.1.1"
+  },
+  "dependencies": {
+    "particles.js": "~2.0.0"
   }
 }
