@@ -502,7 +502,7 @@ body .wrapper {
   font-style: italic;
 }
 .soon .button {
-  padding: 10px 15px 10px 15px;
+  padding: 10px 12px 10px 12px;
   border: 2px solid #c76035;
   text-align: center;
   -webkit-transition: background 0.5s ease;
@@ -520,12 +520,15 @@ body .wrapper {
   padding: 0;
   list-style: none;
   clear: both;
+  overflow: hidden;
 }
 .soon .social li {
   display: inline-block;
   font-size: 1.2em;
   margin: 0 10px 0 10px;
+  overflow: hidden;
 }
 .soon .social li a {
   color: #c76035;
+  display: inline-block;
 }
