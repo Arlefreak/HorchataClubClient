@@ -452,6 +452,7 @@ body .wrapper {
   width: 100%;
   padding: 0 0 20px 0;
   background: #c76035;
+  border-bottom: 5px solid #ffa784;
 }
 .soon header img {
   width: 50%;
