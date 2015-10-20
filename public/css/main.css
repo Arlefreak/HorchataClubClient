@@ -496,6 +496,7 @@ body .wrapper {
   .soon p {
     width: 48%;
     text-align: justify;
+    font-weight: 100;
   }
 }
 .soon .question {
