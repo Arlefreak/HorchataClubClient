@@ -417,8 +417,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  color: #d2691e;
-  background: #fff;
+  color: #c76035;
+  background: #fdf7f1;
   font-family: 'Aileron', sans-serif;
 }
 html .wrapper,
@@ -448,24 +448,24 @@ body .wrapper {
   text-align: center;
   position: relative;
 }
+.soon header {
+  width: 100%;
+  padding: 0 0 20px 0;
+  background: #c76035;
+}
+.soon header img {
+  width: 50%;
+  max-width: 150px;
+  margin: 20px auto 0 auto;
+  display: blok;
+}
 .soon .center {
   width: 100%;
   display: block;
 }
-@media screen and (min-width: 640px) {
-  .soon .center {
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-  }
-}
 .soon h1 {
-  font-size: 1.2em;
+  font-size: 1em;
+  color: #fdf7f1;
   letter-spacing: 0.4em;
   font-weight: 500;
   margin: 20px auto 0 auto;
@@ -502,7 +502,7 @@ body .wrapper {
 }
 .soon .button {
   padding: 10px 15px 10px 15px;
-  border: 2px solid #d2691e;
+  border: 2px solid #c76035;
   text-align: center;
   -webkit-transition: background 0.5s ease;
   -moz-transition: background 0.5s ease;
@@ -511,8 +511,8 @@ body .wrapper {
   transition: background 0.5s ease;
 }
 .soon .button:hover {
-  background: #d2691e;
-  color: #fff;
+  background: #c76035;
+  color: #fdf7f1;
 }
 .soon .social {
   margin: 50px auto 50px auto;
@@ -526,5 +526,5 @@ body .wrapper {
   margin: 0 10px 0 10px;
 }
 .soon .social li a {
-  color: #d2691e;
+  color: #c76035;
 }
