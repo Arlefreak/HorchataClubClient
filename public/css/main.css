@@ -458,7 +458,7 @@ body .wrapper {
   width: 50%;
   max-width: 150px;
   margin: 20px auto 0 auto;
-  display: blok;
+  display: block;
 }
 .soon .center {
   width: 100%;
@@ -544,6 +544,8 @@ body .wrapper {
   text-align: left;
   display: inline-block;
   max-width: 100px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 .horchata h3 {
   width: 70%;
