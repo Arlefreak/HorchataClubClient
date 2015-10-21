@@ -534,3 +534,41 @@ body .wrapper {
   color: #c76035;
   display: inline-block;
 }
+.horchata {
+  display: block;
+  margin: 10px auto 10px auto;
+  width: 48%;
+  max-width: 480px;
+}
+.horchata img {
+  text-align: left;
+  display: inline-block;
+  max-width: 100px;
+}
+.horchata h3 {
+  width: 70%;
+  font-weight: 500;
+  font-size: 1.5em;
+  display: inline-block;
+  text-align: left;
+  margin: 10px 0 10px 0;
+}
+.horchata a {
+  color: #c76035;
+  text-decoration: none;
+  font-weight: 100;
+  font-size: 0.8em;
+}
+.horchata .grade {
+  text-align: right;
+}
+.horchata .description,
+.horchata .address,
+.horchata .flag__body {
+  text-align: left;
+}
+.horchata .description p,
+.horchata .address p,
+.horchata .flag__body p {
+  margin: 0 0 10px 0;
+}

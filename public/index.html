@@ -96,6 +96,9 @@
             <img src="img/logo.svg" alt="HORCHATA·CLUB">
             <h1>HORCHATA·CLUB</h1>
         </header>
+        <div id="horchataApp">
+            <ul id="horchataList"></ul>
+        </div>
         <div class="center">
             <p>
                 Somos amantes de la centenaria bebida refrescante conocida como Agua de Horchata, tradicional bebida mexicana que suele acompañar nuestros tacos o arracheras. A pesar de su fácil y conocida preparación, en Horchata.Club nos dimos la tarea de probar las mejores horchatas de la Ciudad de México, documentarlas y clasificarlas.
@@ -120,6 +123,27 @@
             </ul>
         </div>
     </section>
+    <script type="text/template" id="horchata-template">
+        <div class="flag horchata">
+            <div class="flag__image">
+                <img src="<%= image %>" alt="<%= name %>">
+            </div>
+            <div class="flag__body">
+                <h3><%= name %></h3>
+                <span class="grade">
+                    <% for(var i = 0; i < grade; i++){ %>
+                        <i class="fa fa-star"></i>
+                    <% } %>
+                </span>
+                <div class="description"><%= description %></div>
+                <div class="address">
+                    <a href="<%= map_url %>">
+                        <%= address %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </script>
     <script type="text/javascript" src="js/vendor.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script>
