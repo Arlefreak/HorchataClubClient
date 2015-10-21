@@ -585,6 +585,7 @@ body .wrapper {
   margin: 0 0 5px 0;
   max-width: none;
   width: 90%;
+  text-align: left;
   font-weight: 100;
 }
 .horchata .description a {
