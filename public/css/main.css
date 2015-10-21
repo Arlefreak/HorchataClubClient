@@ -453,6 +453,7 @@ body .wrapper {
   padding: 0 0 20px 0;
   background: #c76035;
   border-bottom: 5px solid #ffa784;
+  overflow: hidden;
 }
 .soon header img {
   width: 50%;
@@ -536,9 +537,15 @@ body .wrapper {
 }
 .horchata {
   display: block;
-  margin: 10px auto 10px auto;
+  margin: 10px auto 20px auto;
   width: 48%;
   max-width: 480px;
+}
+@media screen and (max-width: 600px) {
+  .horchata {
+    width: 80%;
+    margin: 10px auto 50px auto;
+  }
 }
 .horchata img {
   text-align: left;
@@ -548,12 +555,19 @@ body .wrapper {
   border-radius: 50%;
 }
 .horchata h3 {
-  width: 70%;
+  width: 65%;
   font-weight: 500;
   font-size: 1.5em;
   display: inline-block;
   text-align: left;
   margin: 10px 0 10px 0;
+}
+@media screen and (max-width: 600px) {
+  .horchata h3 {
+    width: 100%;
+    display: block;
+    text-align: left;
+  }
 }
 .horchata a {
   color: #c76035;
@@ -563,6 +577,13 @@ body .wrapper {
 }
 .horchata .grade {
   text-align: right;
+}
+@media screen and (max-width: 600px) {
+  .horchata .grade {
+    text-align: left;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
 }
 .horchata .description,
 .horchata .address,
