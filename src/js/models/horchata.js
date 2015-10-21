@@ -20,6 +20,7 @@ module.exports = Backbone.Model.extend({
         address: '',
         map_url: '',
         description: '',
+        small_text: '',
         image: '',
         date: '',
         updated: ''
