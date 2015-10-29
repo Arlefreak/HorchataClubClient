@@ -540,6 +540,11 @@ body .wrapper {
   margin: 10px auto 20px auto;
   width: 48%;
   max-width: 480px;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 2px #aaa;
+  box-shadow: 0 1px 2px #aaa;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 @media screen and (max-width: 600px) {
   .horchata {
@@ -548,11 +553,9 @@ body .wrapper {
   }
 }
 .horchata img {
-  text-align: left;
-  display: inline-block;
-  max-width: 100px;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 .horchata h3 {
   width: 65%;
@@ -574,15 +577,32 @@ body .wrapper {
   display: block;
   margin: 0 auto 10px auto;
 }
+.horchata .horchata__body {
+  padding: 15px;
+  text-align: left;
+}
+.horchata .address {
+  margin: 10px 0 0 0;
+  border-top: 1px solid;
+  padding: 10px 0 0 0;
+}
+.horchata .horchata__img {
+  min-height: 350px;
+  -webkit-border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 .horchata .description,
-.horchata .address,
-.horchata .flag__body {
+.horchata .address {
   text-align: left;
 }
 .horchata .description p,
-.horchata .address p,
-.horchata .flag__body p {
-  margin: 0 0 5px 0;
+.horchata .address p {
+  margin: 0 0 0 0;
   max-width: none;
   width: 90%;
   text-align: left;
