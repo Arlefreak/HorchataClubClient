@@ -4,42 +4,36 @@ var $ = window.$;
 var Backbone = window.Backbone;
 Backbone.$ = $;
 
-var Common = require('../common');
 var Horchata = require('../collections/horchatas');
 var Single = require('./single');
 
 module.exports = Backbone.View.extend({
     el: '#horchataApp',
+    template: _.template($('#horchatalist-template').html()),
 
     initialize: function() {
-        this.$main = this.$('#horchataApp');
+        this.collection = Horchata;
 
-        this.listenTo(Horchata, 'add', this.addOne);
-        this.listenTo(Horchata, 'reset', this.addAll);
-
-        // New
         this.listenTo(Horchata, 'all', this.render);
         Horchata.fetch({reset:true});
     },
 
     render: function() {
-
-        if (Horchata.length) {
-            this.$main.show();
-        } else {
-            this.$main.hide();
-        }
+        this.$el.html(this.template());
+        this.$main = this.$('#horchataList');
+        this.addAll();
+        return this;
     },
 
     addOne: function(horchata) {
         var view = new Single({
             model: horchata
         });
-        $('#horchataList').append(view.render().el);
+        this.$main.append(view.render().el);
     },
 
     addAll: function() {
-        this.$('#horchataList').html('');
+        this.$main.html('');
         Horchata.each(this.addOne, this);
     },
 });

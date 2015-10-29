@@ -10,17 +10,6 @@
     height 100vh
     text-align center
     position relative
-    header
-        width 100%
-        padding 0 0 20px 0
-        background $color2
-        border-bottom 5px solid #ffa784
-        overflow hidden
-        img
-            width 50%
-            max-width 150px
-            margin 20px auto 0 auto
-            display block
     .center
         width 100%
         display block
@@ -54,13 +43,23 @@
         text-align center
         font-style italic
     .button
+    .buttonInv
         padding 10px 12px 10px 12px
-        border 2px solid $color2
         text-align center
         transition background 0.5s ease
+        cursor pointer
+    .button
+        border 2px solid $color2
+        color $color2
         &:hover
             background $color2
             color $color1
+    .buttonInv
+        border 2px solid $color1
+        color $color1
+        &:hover
+            background $color1
+            color $color2
     .social
         margin 50px auto 50px auto
         padding 0
