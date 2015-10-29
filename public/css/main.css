@@ -506,7 +506,8 @@ body .wrapper {
   border: 2px solid #c76035;
   color: #c76035;
 }
-.soon .button:hover {
+.soon .button:hover,
+.soon .button.active {
   background: #c76035;
   color: #fdf7f1;
 }
@@ -514,7 +515,8 @@ body .wrapper {
   border: 2px solid #fdf7f1;
   color: #fdf7f1;
 }
-.soon .buttonInv:hover {
+.soon .buttonInv:hover,
+.soon .buttonInv.active {
   background: #fdf7f1;
   color: #c76035;
 }
