@@ -1,29 +1,20 @@
-React = require("react");
-
-TodoListComponent = React.createClass({
-    handleTodoDelete: function() {
-        return TodoDispatcher.dispatch({
-            actionType: "todo-delete",
-            todo: this.props.todoItem
-        });
-    },
-    componentDidMount: function() {
-        return this.props.TodoStore.on("add remove reset", (function(_this) {
-            return function() {
-                return _this.forceUpdate();
-            };
-        })(this), this);
-    },
-    componentWillUnmount: function() {
-        return this.props.TodoStore.off(null, null, this);
-    },
-    render: function() {
-        return React.DOM.ul({}, this.props.TodoStore.items.map(function(todoItem) {
-            return TodoItemComponent({
-                todoItem: todoItem
-            });
-        }));
-    }
-});
-
-module.exports = TodoListComponent;
+<div class="horchata">
+    <div class="horchata__img" style="background-image:url('<%= image %>')">
+    </div>
+    <div class="horchata__body">
+        <h3><%= name %></h3>
+        <span class="grade">
+            <% for(var i = 0; i < grade; i++){ %>
+                <i class="fa fa-star"></i>
+                <% } %>
+            </span>
+            <div class="description">
+                <p><%= small_text %></p>
+            </div>
+            <div class="address">
+                <a href="<%= map_url %>">
+                    <%= address %>
+                </a>
+            </div>
+        </div>
+    </div>
