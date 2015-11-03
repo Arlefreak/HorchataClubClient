@@ -22,7 +22,7 @@ var Horchata  = require('../models/horchata');
 
 var Products = Backbone.Collection.extend({
     model: Horchata,
-    url: Common.URL + 'horchata',
+    url: Common.URL + 'horchata?publish=True',
     
     comparator: function(product) {
         return product.get('order');
