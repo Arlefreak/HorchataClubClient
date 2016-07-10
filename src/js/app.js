@@ -1,11 +1,6 @@
-'use strict';
-var $           = window.$;
-var Router      = require('./routes/route.js');
-var particlesJS = window.particlesJS;
-var r;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/app.jsx';
 
-$(function() {
-    r = new Router();
-    Backbone.history.start();
-    particlesJS.load('particles-js', '../json/particles.json', function() {});
-});
+var app = React.createElement(App);
+ReactDOM.render(app, document.getElementById('application'));
