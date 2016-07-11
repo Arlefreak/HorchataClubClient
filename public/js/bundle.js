@@ -29385,7 +29385,7 @@ var Row = function Row(_ref) {
 
     return _react2.default.createElement(
         'div',
-        { className: 'horchata' },
+        { className: 'row card' },
         _react2.default.createElement('div', { className: 'horchata__img', style: style }),
         _react2.default.createElement(
             'div',

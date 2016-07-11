@@ -20,7 +20,7 @@ const Row = ({
     }
 
     return (
-        <div className="horchata">
+        <div className="row card">
             <div className="horchata__img" style={style}></div>
             <div className="horchata__body">
                 <h3>{name}</h3>

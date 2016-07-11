@@ -12,16 +12,17 @@ body
     margin 0
     padding 0
     color $color2
-    font-family $font
     .wrapper
-        width 100%
+        width 90%
         margin auto
         position relative
-        text-align center
-        @media screen and (min-width: 640px)
-            width auto
+        overflow hidden
+        @media screen and (max-width: $max-width-mobile)
+            width 98%
 
-@import 'soon'
 @import 'header'
 @import 'footer'
+@import 'particles'
+@import 'content'
 @import 'list'
+@import 'row'
