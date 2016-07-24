@@ -3,6 +3,7 @@ import Row from './row.jsx';
 import Loading from './loading.jsx';
 
 const List = ({ items, isFetching }) => {
+    // if(!isFetching){
     if(!isFetching){
         return (
             <ul className="horchata-list">

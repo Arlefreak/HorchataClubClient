@@ -29110,6 +29110,7 @@ var List = function List(_ref) {
     var items = _ref.items;
     var isFetching = _ref.isFetching;
 
+    // if(!isFetching){
     if (!isFetching) {
         return _react2.default.createElement(
             'ul',
@@ -29174,8 +29175,8 @@ var Loading = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 "div",
-                { className: "sk-spinner sk-spinner-pulse" },
-                "Loading"
+                { className: "card signal-parent" },
+                _react2.default.createElement("div", { className: "signal" })
             );
         }
     }]);
