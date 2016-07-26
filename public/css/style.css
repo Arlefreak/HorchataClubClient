@@ -339,6 +339,7 @@ body {
   margin: 0;
   padding: 0;
   color: #c76035;
+  font-family: 'Open Sans', sans-serif;
 }
 html .wrapper,
 body .wrapper {
@@ -590,6 +591,7 @@ p {
   font-weight: 400;
   font-size: 1.1em;
   text-align: left;
+  line-height: 1.3em;
   margin: 20px auto 20px auto;
   width: 80%;
   max-width: 480px;

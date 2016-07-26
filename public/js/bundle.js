@@ -29046,7 +29046,7 @@ var Header = function (_React$Component) {
                 _react2.default.createElement(
                     'h1',
                     null,
-                    'HORCHATACLUB'
+                    'HORCHATA.CLUB'
                 ),
                 _react2.default.createElement(
                     'nav',
