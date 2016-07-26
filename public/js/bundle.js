@@ -28815,7 +28815,7 @@ var About = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 "div",
-                { id: "aboutus" },
+                { className: "aboutus card" },
                 _react2.default.createElement(
                     "p",
                     null,
