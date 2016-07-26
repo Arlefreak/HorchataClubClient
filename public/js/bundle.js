@@ -29372,6 +29372,8 @@ var Row = function Row(_ref) {
     var image = _ref.image;
     var small_text = _ref.small_text;
     var grade = _ref.grade;
+    var address = _ref.address;
+    var location = _ref.location;
 
     var url = 'url(' + image + ')';
     // var url = 'url()';
@@ -29380,6 +29382,8 @@ var Row = function Row(_ref) {
     };
 
     var gradeArr = [];
+    var locationArr = location.split(',');
+    var googleLink = 'https://google.com/maps/?q=' + locationArr[0] + ',' + locationArr[1];
     for (var i = 0; i < grade; i++) {
         gradeArr.push(_react2.default.createElement('i', { key: i, className: 'fa fa-star' }));
     }
@@ -29417,8 +29421,8 @@ var Row = function Row(_ref) {
                 { className: 'address' },
                 _react2.default.createElement(
                     'a',
-                    { href: '' },
-                    name
+                    { href: googleLink, target: '_blank' },
+                    address
                 )
             )
         )
@@ -29431,8 +29435,9 @@ Row.propTypes = {
     name: _react.PropTypes.string.isRequired,
     image: _react.PropTypes.string.isRequired,
     small_text: _react.PropTypes.string.isRequired,
-    grade: _react.PropTypes.number.isRequired
-
+    grade: _react.PropTypes.number.isRequired,
+    address: _react.PropTypes.string.isRequired,
+    location: _react.PropTypes.string.isRequired
 };
 
 exports.default = Row;

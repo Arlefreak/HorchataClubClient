@@ -6,7 +6,9 @@ const Row = ({
     name,
     image,
     small_text,
-    grade
+    grade,
+    address,
+    location
 }) => {
     var url = 'url(' + image + ')';
     // var url = 'url()';
@@ -15,6 +17,8 @@ const Row = ({
     };
 
     var gradeArr = [];
+    var locationArr = location.split(',');
+    var googleLink = 'https://google.com/maps/?q=' + locationArr[0] + ',' + locationArr[1];
     for(var i = 0; i < grade; i++){
         gradeArr.push(<i key={i} className="fa fa-star"/>);
     }
@@ -37,7 +41,7 @@ const Row = ({
                     <p>{small_text}</p>
                 </div>
                 <div className="address">
-                    <a href="">{name}</a>
+                    <a href={googleLink} target="_blank">{address}</a>
                 </div>
             </div>
         </div>
@@ -49,8 +53,9 @@ Row.propTypes = {
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     small_text: PropTypes.string.isRequired,
-    grade: PropTypes.number.isRequired
-
+    grade: PropTypes.number.isRequired,
+    address: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired
 };
 
 export default Row;
