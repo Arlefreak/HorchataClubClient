@@ -766,7 +766,7 @@ p {
   font-size: 0.8em;
 }
 .aboutus {
-  width: 70%;
+  max-width: 600px;
   margin: 10px auto 10px auto;
   padding: 10px;
   -webkit-box-sizing: border-box;
