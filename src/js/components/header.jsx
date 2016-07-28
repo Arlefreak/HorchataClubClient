@@ -5,7 +5,7 @@ class Header extends React.Component {
     render() {
         return (
             <header>
-                <img src="img/logo.svg" alt="HORCHATACLUB"/>
+                <img src="/img/logo.svg" alt="HORCHATACLUB"/>
                 <h1>HORCHATA.CLUB</h1>
                 <nav>
                     <ul>

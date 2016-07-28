@@ -1,11 +1,13 @@
 /*eslint camelcase: 0*/
 import React, { PropTypes } from 'react';
+import { Link, IndexLink } from 'react-router';
 
 const Row = ({
     id,
     name,
     image,
     small_text,
+    description,
     grade,
     address,
     location
@@ -25,9 +27,15 @@ const Row = ({
 
     return (
         <div className="row card">
-            <div className="horchata__img" style={style}></div>
+            <Link to={`/horchatas/${id}`}>
+                <div className="horchata__img" style={style}></div>
+            </Link>
             <div className="horchata__body">
-                <h3>{name}</h3>
+                <h3>
+                    <Link to={`/horchatas/${id}`}>
+                        {name}
+                    </Link>
+                </h3>
                 <span className="grade">
                     {
                         gradeArr.map(function(item, i){
@@ -53,6 +61,7 @@ Row.propTypes = {
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     small_text: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     grade: PropTypes.number.isRequired,
     address: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired

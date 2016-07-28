@@ -28760,7 +28760,7 @@ function fileShouldFetch(state, endPoint) {
     }
 }
 
-},{"../constants.js":276,"isomorphic-fetch":49}],266:[function(require,module,exports){
+},{"../constants.js":277,"isomorphic-fetch":49}],266:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -28919,7 +28919,7 @@ var App = function (_Component) {
 
 exports.default = App;
 
-},{"../reducers/reducers":278,"./routes.jsx":274,"react":250,"react-redux":61,"redux":258,"redux-logger":251,"redux-thunk":252}],269:[function(require,module,exports){
+},{"../reducers/reducers":280,"./routes.jsx":274,"react":250,"react-redux":61,"redux":258,"redux-logger":251,"redux-thunk":252}],269:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29042,7 +29042,7 @@ var Header = function (_React$Component) {
             return _react2.default.createElement(
                 'header',
                 null,
-                _react2.default.createElement('img', { src: 'img/logo.svg', alt: 'HORCHATACLUB' }),
+                _react2.default.createElement('img', { src: '/img/logo.svg', alt: 'HORCHATACLUB' }),
                 _react2.default.createElement(
                     'h1',
                     null,
@@ -29308,9 +29308,9 @@ var _horchata__list = require('../containers/horchata__list.js');
 
 var _horchata__list2 = _interopRequireDefault(_horchata__list);
 
-var _row = require('./row.jsx');
+var _horchata__single = require('../containers/horchata__single.js');
 
-var _row2 = _interopRequireDefault(_row);
+var _horchata__single2 = _interopRequireDefault(_horchata__single);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29340,7 +29340,7 @@ var Routes = function (_Component) {
                     { path: '/', component: _root2.default },
                     _react2.default.createElement(_reactRouter.IndexRoute, { component: _horchata__list2.default }),
                     _react2.default.createElement(_reactRouter.Route, { path: 'horchatas', component: _horchata__list2.default }),
-                    _react2.default.createElement(_reactRouter.Route, { path: 'horchatas/:id', component: _horchata__list2.default }),
+                    _react2.default.createElement(_reactRouter.Route, { path: 'horchatas/:id', component: _horchata__single2.default }),
                     _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _about2.default }),
                     _react2.default.createElement(_reactRouter.Route, { path: '*', component: _loading2.default })
                 )
@@ -29353,7 +29353,7 @@ var Routes = function (_Component) {
 
 exports.default = Routes;
 
-},{"../containers/horchata__list.js":277,"./about.jsx":267,"./loading.jsx":272,"./root.jsx":273,"./row.jsx":275,"react":250,"react-router":95}],275:[function(require,module,exports){
+},{"../containers/horchata__list.js":278,"../containers/horchata__single.js":279,"./about.jsx":267,"./loading.jsx":272,"./root.jsx":273,"react":250,"react-router":95}],275:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29364,13 +29364,19 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouter = require('react-router');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/*eslint camelcase: 0*/
+
 
 var Row = function Row(_ref) {
     var id = _ref.id;
     var name = _ref.name;
     var image = _ref.image;
     var small_text = _ref.small_text;
+    var description = _ref.description;
     var grade = _ref.grade;
     var address = _ref.address;
     var location = _ref.location;
@@ -29391,14 +29397,22 @@ var Row = function Row(_ref) {
     return _react2.default.createElement(
         'div',
         { className: 'row card' },
-        _react2.default.createElement('div', { className: 'horchata__img', style: style }),
+        _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/horchatas/' + id },
+            _react2.default.createElement('div', { className: 'horchata__img', style: style })
+        ),
         _react2.default.createElement(
             'div',
             { className: 'horchata__body' },
             _react2.default.createElement(
                 'h3',
                 null,
-                name
+                _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/horchatas/' + id },
+                    name
+                )
             ),
             _react2.default.createElement(
                 'span',
@@ -29427,14 +29441,14 @@ var Row = function Row(_ref) {
             )
         )
     );
-}; /*eslint camelcase: 0*/
-
+};
 
 Row.propTypes = {
     id: _react.PropTypes.number.isRequired,
     name: _react.PropTypes.string.isRequired,
     image: _react.PropTypes.string.isRequired,
     small_text: _react.PropTypes.string.isRequired,
+    description: _react.PropTypes.string.isRequired,
     grade: _react.PropTypes.number.isRequired,
     address: _react.PropTypes.string.isRequired,
     location: _react.PropTypes.string.isRequired
@@ -29442,7 +29456,104 @@ Row.propTypes = {
 
 exports.default = Row;
 
-},{"react":250}],276:[function(require,module,exports){
+},{"react":250,"react-router":95}],276:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function createMarkup(s) {
+    return { __html: s };
+} /*eslint camelcase: 0*/
+/*eslint react/no-danger: 0*/
+
+;
+var Single = function Single(_ref) {
+    var isFetching = _ref.isFetching;
+    var single = _ref.single;
+
+    var url = 'url(' + single.image + ')';
+    // var url = 'url()';
+    var style = {
+        backgroundImage: url
+    };
+
+    var gradeArr = [];
+    var locationArr = single.location.split(',');
+    var googleLink = 'https://google.com/maps/?q=' + locationArr[0] + ',' + locationArr[1];
+    var mapLink = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBWxPXR1jBEg97WE1X_zpcGZPzmDxOiqS4&q=S' + locationArr[0] + ',' + locationArr[1];
+    for (var i = 0; i < single.grade; i++) {
+        gradeArr.push(_react2.default.createElement('i', { key: i, className: 'fa fa-star' }));
+    }
+
+    return _react2.default.createElement(
+        'div',
+        { className: 'single card' },
+        _react2.default.createElement('div', { className: 'horchata__img', style: style }),
+        _react2.default.createElement(
+            'div',
+            { className: 'horchata__body' },
+            _react2.default.createElement(
+                'h3',
+                null,
+                single.name
+            ),
+            _react2.default.createElement(
+                'span',
+                { className: 'grade' },
+                gradeArr.map(function (item, i) {
+                    return item;
+                })
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'description' },
+                _react2.default.createElement('div', { dangerouslySetInnerHTML: createMarkup(single.description) })
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'address' },
+                _react2.default.createElement(
+                    'a',
+                    { href: googleLink, target: '_blank' },
+                    single.address
+                )
+            )
+        ),
+        _react2.default.createElement(
+            'div',
+            { className: 'horchata__map' },
+            _react2.default.createElement('iframe', {
+                frameBorder: '0',
+                src: mapLink,
+                allowFullScreen: true })
+        )
+    );
+};
+
+Single.propTypes = {
+    isFetching: _react.PropTypes.bool.isRequired,
+    single: _react.PropTypes.shape({
+        id: _react.PropTypes.number.isRequired,
+        name: _react.PropTypes.string.isRequired,
+        image: _react.PropTypes.string.isRequired,
+        small_text: _react.PropTypes.string.isRequired,
+        grade: _react.PropTypes.number.isRequired,
+        address: _react.PropTypes.string.isRequired,
+        location: _react.PropTypes.string.isRequired
+    }).isRequired
+};
+
+exports.default = Single;
+
+},{"react":250}],277:[function(require,module,exports){
 'use strict';
 
 var APIURL = 'http://api.horchata.club/';
@@ -29450,7 +29561,7 @@ module.exports = {
     APIURL: APIURL
 };
 
-},{}],277:[function(require,module,exports){
+},{}],278:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29494,7 +29605,72 @@ var HorchataList = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)
 
 exports.default = HorchataList;
 
-},{"../actions/actions":265,"../components/list.jsx":271,"react-redux":61}],278:[function(require,module,exports){
+},{"../actions/actions":265,"../components/list.jsx":271,"react-redux":61}],279:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactRedux = require('react-redux');
+
+var _single = require('../components/single.jsx');
+
+var _single2 = _interopRequireDefault(_single);
+
+var _actions = require('../actions/actions');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+    var id = ownProps.params.id;
+    var apiCalls = state.apiCalls;
+
+    var _ref = apiCalls['horchata'] || {
+        isFetching: true,
+        items: []
+    };
+
+    var isFetching = _ref.isFetching;
+    var items = _ref.items;
+
+
+    var single = {
+        id: 0,
+        name: 'Not Found',
+        image: '',
+        small_text: 'Err 404',
+        description: 'Err 404',
+        grade: 0,
+        address: '/404',
+        location: ''
+    };
+
+    var i = 0;
+    for (i; i < items.length; i++) {
+        if (items[i].id === parseInt(id)) {
+            single = items[i];
+            break;
+        }
+    }
+
+    return {
+        isFetching: isFetching,
+        single: single
+    };
+}; /*eslint camelcase: 0*/
+
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    dispatch((0, _actions.apiFetchIfNeeded)('horchata'));
+    return {};
+};
+
+var HosrchataSingle = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_single2.default);
+
+exports.default = HosrchataSingle;
+
+},{"../actions/actions":265,"../components/single.jsx":276,"react-redux":61}],280:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

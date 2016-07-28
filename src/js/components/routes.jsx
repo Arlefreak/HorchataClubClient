@@ -4,7 +4,7 @@ import Root from './root.jsx';
 import Loading from './loading.jsx';
 import About from './about.jsx';
 import Horchata from '../containers/horchata__list.js';
-import Row from './row.jsx';
+import Single from '../containers/horchata__single.js';
 
 class Routes extends Component {
     render() {
@@ -13,7 +13,7 @@ class Routes extends Component {
                 <Route path="/" component={Root}>
                     <IndexRoute component={Horchata} /> 
                     <Route path="horchatas" component={Horchata} />
-                    <Route path="horchatas/:id" component={Horchata} />
+                    <Route path="horchatas/:id" component={Single} />
                     <Route path="about" component={About} />
                     <Route path="*" component={Loading} />
                 </Route>
