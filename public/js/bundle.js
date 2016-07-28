@@ -29488,7 +29488,7 @@ var Single = function Single(_ref) {
     var gradeArr = [];
     var locationArr = single.location.split(',');
     var googleLink = 'https://google.com/maps/?q=' + locationArr[0] + ',' + locationArr[1];
-    var mapLink = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBWxPXR1jBEg97WE1X_zpcGZPzmDxOiqS4&q=S' + locationArr[0] + ',' + locationArr[1];
+    var mapLink = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBWxPXR1jBEg97WE1X_zpcGZPzmDxOiqS4&q=' + locationArr[0] + ',' + locationArr[1];
     {/* var mapLink = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + locationArr[0] + ',' + locationArr[1] +  '&radius=5000&sensor=true&key=AIzaSyBNoofXBA50Y9SGLbZ1JxBsnvSEoUcnUiA'; */}
     for (var i = 0; i < single.grade; i++) {
         gradeArr.push(_react2.default.createElement('i', { key: i, className: 'fa fa-star' }));
