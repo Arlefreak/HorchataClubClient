@@ -1,0 +1,28 @@
+@import 'nib'
+@import "lib/*"
+
+global-reset()
+
+html
+    background $color1
+body
+    background transparent
+html
+body
+    margin 0
+    padding 0
+    color $color2
+    .wrapper
+        width 90%
+        margin auto
+        position relative
+        overflow hidden
+        @media screen and (max-width: $max-width-mobile)
+            width 98%
+
+@import 'header'
+@import 'footer'
+@import 'particles'
+@import 'content'
+@import 'list'
+@import 'row'

@@ -1,0 +1,81 @@
+.row
+    display block
+    float left
+    width 23.5%
+    margin 0 1.0% 20px 1.0%
+    text-align center
+    &:nth-child(4n-7)
+        margin 0 1.0% 20px 0
+        @media screen and (max-width: $max-width-mobile)
+            margin 0 2.5% 20px 2.5%
+        @media screen and (max-width: 500px)
+            margin 0 auto 20px auto
+    &:nth-child(4n)
+        margin 0 0 20px 1.0%
+        @media screen and (max-width: $max-width-mobile)
+            margin 0 2.5% 20px 2.5%
+        @media screen and (max-width: 500px)
+            margin 0 auto 20px auto
+    @media screen and (max-width: $max-width-mobile)
+        width 45%
+    @media screen and (max-width: 500px)
+        width 95%
+        float none
+        margin 0 auto 20px auto
+    img
+        text-align center
+        display block
+        width 100%
+    h3
+        width 100%
+        overflow hidden
+        white-space nowrap
+        font-weight 500 
+        font-size 1.5em
+        display inline-block
+        text-align left
+        margin 10px 0 10px 0
+        @media screen and (max-width 600px)
+            width 100%
+            display block
+            text-align left
+    .grade
+        text-align left
+        display block
+        margin 0 auto 10px auto
+    .horchata__body
+        padding 15px
+        text-align left
+    .address
+        margin 10px 0 0 0
+        border-top 1px solid
+        padding 10px 0 0 0
+    .horchata__img
+        min-height 350px
+        border-radius 10px 10px 0 0
+        background-size cover
+        background-position center center
+        background-repeat no-repeat
+    .description
+    .address
+        text-align left
+        p
+            margin 0 0 0 0
+            max-width none
+            width 90%
+            text-align left
+            font-weight 100
+    .description
+        height 80px
+        overflow hidden
+        a
+            color $color2
+            font-weight 100
+            display block
+            margin 0px 0 10px 0
+    .address
+        a
+            color $color2
+            text-decoration none
+            font-weight 100
+            font-size 0.8em
