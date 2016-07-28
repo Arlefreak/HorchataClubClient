@@ -29333,7 +29333,7 @@ var Routes = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 _reactRouter.Router,
-                { history: _reactRouter.hashHistory },
+                { history: _reactRouter.browserHistory },
                 _react2.default.createElement(
                     _reactRouter.Route,
                     { path: '/', component: _root2.default },
