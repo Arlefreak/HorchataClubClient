@@ -6,7 +6,7 @@ class Header extends React.Component {
         return (
             <header>
                 <img src="img/logo.svg" alt="HORCHATACLUB"/>
-                <h1>HORCHATACLUB</h1>
+                <h1>HORCHATA.CLUB</h1>
                 <nav>
                     <ul>
                         <li><IndexLink to="/" className="buttonInv" activeClassName="active">Horchatas</IndexLink></li>

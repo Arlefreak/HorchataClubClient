@@ -3,7 +3,7 @@ import React from 'react';
 class About extends React.Component {
     render() {
         return (
-            <div id="aboutus">
+            <div className="aboutus card">
                 <p>
                     Somos amantes de la centenaria bebida refrescante conocida como Agua de Horchata, tradicional bebida mexicana que suele acompañar nuestros tacos o arracheras. A pesar de su fácil y conocida preparación, en Horchata.Club nos dimos la tarea de probar las mejores horchatas de la Ciudad de México, documentarlas y clasificarlas.
                 </p>
