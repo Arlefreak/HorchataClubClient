@@ -30045,48 +30045,48 @@ var Row = function Row(_ref) {
     }
 
     return _react2.default.createElement(
-        'div',
-        { className: 'row card' },
-        _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/horchatas/' + id },
-            _react2.default.createElement('div', { className: 'horchata__img', style: style })
-        ),
+        'li',
+        { className: 'row' },
         _react2.default.createElement(
             'div',
-            { className: 'horchata__body' },
-            _react2.default.createElement(
-                'h3',
-                null,
-                _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/horchatas/' + id },
-                    name
-                )
-            ),
-            _react2.default.createElement(
-                'span',
-                { className: 'grade' },
-                gradeArr.map(function (item, i) {
-                    return item;
-                })
-            ),
+            { className: 'card' },
+            _react2.default.createElement('img', { className: 'horchata__img', src: image }),
             _react2.default.createElement(
                 'div',
-                { className: 'description' },
+                { className: 'horchata__body' },
                 _react2.default.createElement(
-                    'p',
+                    'h3',
                     null,
-                    small_text
-                )
-            ),
-            _react2.default.createElement(
-                'div',
-                { className: 'address' },
+                    _react2.default.createElement(
+                        _reactRouter.Link,
+                        { to: '/horchatas/' + id },
+                        name
+                    )
+                ),
                 _react2.default.createElement(
-                    'a',
-                    { href: googleLink, target: '_blank' },
-                    address
+                    'span',
+                    { className: 'grade' },
+                    gradeArr.map(function (item, i) {
+                        return item;
+                    })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'description' },
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        small_text
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'address' },
+                    _react2.default.createElement(
+                        'a',
+                        { href: googleLink, target: '_blank' },
+                        address
+                    )
                 )
             )
         )

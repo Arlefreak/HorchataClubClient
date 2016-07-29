@@ -344,7 +344,6 @@ body {
 html .wrapper,
 body .wrapper {
   width: 90%;
-  max-width: 1024px;
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -610,13 +609,12 @@ a {
 }
 h3 {
   width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
   font-weight: 500;
   font-size: 1.5em;
   display: inline-block;
   text-align: left;
   margin: 10px 0 10px 0;
+  line-height: 1.3em;
 }
 @media screen and (max-width: 600px) {
   h3 {
@@ -665,53 +663,44 @@ h3 {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-.horchata_list {
-  width: 80%;
+.horchata-list {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 .row {
-  display: block;
-  float: left;
-  width: 23.5%;
-  margin: 0 1% 20px 1%;
   text-align: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  width: 25%;
+  padding: 0.625rem;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-.row:nth-child(4n-7) {
-  margin: 0 1% 20px 0;
+.row .card {
+  width: 100%;
 }
-@media screen and (max-width: 768px) {
-  .row:nth-child(4n-7) {
-    margin: 0 2.5% 20px 2.5%;
-  }
-}
-@media screen and (max-width: 500px) {
-  .row:nth-child(4n-7) {
-    margin: 0 auto 20px auto;
-  }
-}
-.row:nth-child(4n) {
-  margin: 0 0 20px 1%;
-}
-@media screen and (max-width: 768px) {
-  .row:nth-child(4n) {
-    margin: 0 2.5% 20px 2.5%;
-  }
-}
-@media screen and (max-width: 500px) {
-  .row:nth-child(4n) {
-    margin: 0 auto 20px auto;
-  }
-}
-@media screen and (max-width: 768px) {
-  .row {
-    width: 45%;
-  }
-}
-@media screen and (max-width: 500px) {
-  .row {
-    width: 95%;
-    float: none;
-    margin: 0 auto 20px auto;
-  }
+.row h3 {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .row img {
   text-align: center;
@@ -733,7 +722,7 @@ h3 {
   padding: 10px 0 0 0;
 }
 .row .horchata__img {
-  min-height: 350px;
+  width: 100%;
   -webkit-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
   -webkit-background-size: cover;
@@ -755,7 +744,6 @@ h3 {
   font-weight: 100;
 }
 .row .description {
-  height: 80px;
   overflow: hidden;
 }
 .row .description a {
@@ -769,6 +757,21 @@ h3 {
   text-decoration: none;
   font-weight: 100;
   font-size: 0.8em;
+}
+@media screen and (max-width: 1024px) {
+  .row {
+    width: 33.3%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .row {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .row {
+    width: 100%;
+  }
 }
 .single {
   width: 100%;

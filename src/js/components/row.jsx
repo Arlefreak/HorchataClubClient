@@ -26,33 +26,36 @@ const Row = ({
     }
 
     return (
-        <div className="row card">
-            <Link to={`/horchatas/${id}`}>
-                <div className="horchata__img" style={style}></div>
-            </Link>
-            <div className="horchata__body">
-                <h3>
-                    <Link to={`/horchatas/${id}`}>
-                        {name}
-                    </Link>
-                </h3>
-                <span className="grade">
-                    {
-                        gradeArr.map(function(item, i){
-                            return(
-                                item
-                            );
-                        })
-                    }
-                </span>
-                <div className="description">
-                    <p>{small_text}</p>
-                </div>
-                <div className="address">
-                    <a href={googleLink} target="_blank">{address}</a>
+        <li className="row">
+            <div className="card">
+                {/* <Link to={`/horchatas/${id}`}> */}
+                    {/* <div className="horchata__img" style={style}></div> */}
+                    <img className="horchata__img" src={ image }></img>
+                {/* </Link> */}
+                <div className="horchata__body">
+                    <h3>
+                        <Link to={`/horchatas/${id}`}>
+                            {name}
+                        </Link>
+                    </h3>
+                    <span className="grade">
+                        {
+                            gradeArr.map(function(item, i){
+                                return(
+                                    item
+                                );
+                            })
+                        }
+                    </span>
+                    <div className="description">
+                        <p>{small_text}</p>
+                    </div>
+                    <div className="address">
+                        <a href={googleLink} target="_blank">{address}</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </li>
     );
 };
 
