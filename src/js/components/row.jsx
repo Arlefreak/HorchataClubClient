@@ -38,7 +38,7 @@ const Row = ({
                             {name}
                         </Link>
                     </h3>
-                    <span className="grade">
+                    <div className="grade">
                         {
                             gradeArr.map(function(item, i){
                                 return(
@@ -46,7 +46,7 @@ const Row = ({
                                 );
                             })
                         }
-                    </span>
+                    </div>
                     <div className="description">
                         <p>{small_text}</p>
                     </div>

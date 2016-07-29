@@ -348,12 +348,6 @@ body .wrapper {
   position: relative;
   overflow: hidden;
 }
-@media screen and (max-width: 768px) {
-  html .wrapper,
-  body .wrapper {
-    width: 98%;
-  }
-}
 header {
   width: 100%;
   padding: 0 0 20px 0;
@@ -696,30 +690,23 @@ h3 {
 }
 .row .card {
   width: 100%;
-}
-.row h3 {
-  width: 100%;
-  height: auto;
-  display: block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 .row img {
   text-align: center;
   display: block;
   width: 100%;
-}
-.row .grade {
-  text-align: left;
-  display: block;
-  margin: 0 auto 10px auto;
-}
-.row .horchata__body {
-  padding: 15px;
-  text-align: left;
-}
-.row .address {
-  margin: 10px 0 0 0;
-  border-top: 1px solid;
-  padding: 10px 0 0 0;
 }
 .row .horchata__img {
   width: 100%;
@@ -731,9 +718,50 @@ h3 {
   background-position: center center;
   background-repeat: no-repeat;
 }
+.row .horchata__body {
+  padding: 15px;
+  text-align: left;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+.row h3,
+.row .description,
+.row .address,
+.row .grade {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  width: 100%;
+  margin: 10px auto 10px;
+}
+.row h3 {
+  width: 100%;
+  height: auto;
+}
 .row .description,
 .row .address {
   text-align: left;
+  line-height: 1.3em;
 }
 .row .description p,
 .row .address p {
@@ -744,7 +772,13 @@ h3 {
   font-weight: 100;
 }
 .row .description {
-  overflow: hidden;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
 }
 .row .description a {
   color: #c76035;
@@ -752,11 +786,24 @@ h3 {
   display: block;
   margin: 0px 0 10px 0;
 }
+.row .address {
+  border-top: 1px solid;
+  padding: 10px 0 0 0;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -ms-flex-item-align: end;
+  margin: auto 0 0 0;
+}
 .row .address a {
   color: #c76035;
   text-decoration: none;
   font-weight: 100;
   font-size: 0.8em;
+}
+.row .grade {
+  text-align: left;
+  display: block;
+  margin: 0 auto 10px auto;
 }
 @media screen and (max-width: 1024px) {
   .row {

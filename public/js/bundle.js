@@ -30068,7 +30068,7 @@ var Row = function Row(_ref) {
                     )
                 ),
                 _react2.default.createElement(
-                    'span',
+                    'div',
                     { className: 'grade' },
                     gradeArr.map(function (item, i) {
                         return item;
