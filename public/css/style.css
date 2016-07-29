@@ -350,39 +350,57 @@ body .wrapper {
 }
 header {
   width: 100%;
-  padding: 0 0 20px 0;
+  padding: 10px 0 10px 0;
   margin: 0 0 20px 0;
   background: #c76035;
-  border-bottom: 5px solid #ffa784;
+  border-bottom: 2px solid #ffa784;
   overflow: hidden;
+  height: 65px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+header .wrapper {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0 1% 0 1%;
+}
+header .logo {
+  display: block;
+  float: left;
+  height: 100%;
 }
 header img {
-  width: 50%;
-  max-width: 150px;
-  margin: 20px auto 0 auto;
+  height: 100%;
   display: block;
 }
 header nav {
-  width: 100%;
+  width: 50%;
   display: block;
-  margin: 15px 0 0 0;
+  float: right;
+  height: 100%;
 }
 header nav ul {
   padding: 0;
   margin: 0;
+  height: 100%;
   list-style: none;
-  text-align: center;
+  text-align: right;
 }
 header nav ul li {
   display: inline-block;
+  height: 100%;
+  line-height: 2.5em;
+  white-space: nowrap;
 }
 header nav ul li a {
-  color: inherit;
+  color: #fdf7f1;
   display: inline-block;
   text-decoration: none;
-  min-width: 100px;
   text-align: center;
-  margin: 0 25px 0 25px;
+  vertical-align: center;
 }
 footer {
   width: 100%;

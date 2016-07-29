@@ -29681,34 +29681,28 @@ var Header = function (_React$Component) {
             return _react2.default.createElement(
                 'header',
                 null,
-                _react2.default.createElement('img', { src: '/img/logo.svg', alt: 'HORCHATACLUB' }),
                 _react2.default.createElement(
-                    'h1',
-                    null,
-                    'HORCHATA.CLUB'
-                ),
-                _react2.default.createElement(
-                    'nav',
-                    null,
+                    'div',
+                    { className: 'wrapper' },
                     _react2.default.createElement(
-                        'ul',
+                        _reactRouter.IndexLink,
+                        { to: '/', className: 'logo', activeClassName: 'active' },
+                        _react2.default.createElement('img', { src: '/img/logo.svg', alt: 'HORCHATACLUB' })
+                    ),
+                    _react2.default.createElement(
+                        'nav',
                         null,
                         _react2.default.createElement(
-                            'li',
+                            'ul',
                             null,
                             _react2.default.createElement(
-                                _reactRouter.IndexLink,
-                                { to: '/', className: 'buttonInv', activeClassName: 'active' },
-                                'Horchatas'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                _reactRouter.Link,
-                                { to: '/about', className: 'buttonInv', activeClassName: 'active' },
-                                'About'
+                                'li',
+                                null,
+                                _react2.default.createElement(
+                                    _reactRouter.Link,
+                                    { to: '/about', activeClassName: 'active' },
+                                    'About'
+                                )
                             )
                         )
                     )

@@ -5,14 +5,16 @@ class Header extends React.Component {
     render() {
         return (
             <header>
-                <img src="/img/logo.svg" alt="HORCHATACLUB"/>
-                <h1>HORCHATA.CLUB</h1>
-                <nav>
-                    <ul>
-                        <li><IndexLink to="/" className="buttonInv" activeClassName="active">Horchatas</IndexLink></li>
-                        <li><Link to="/about" className="buttonInv" activeClassName="active">About</Link></li>
-                    </ul>
-                </nav>
+                <div className="wrapper">
+                    <IndexLink to="/" className="logo" activeClassName="active">
+                        <img src="/img/logo.svg" alt="HORCHATACLUB"/>
+                    </IndexLink>
+                    <nav>
+                        <ul>
+                            <li><Link to="/about" activeClassName="active">About</Link></li>
+                        </ul>
+                    </nav>
+                </div>
             </header>
         );
     }
