@@ -775,10 +775,9 @@ h3 {
 }
 .single {
   width: 100%;
-  max-width: 1024px;
+  max-width: 800px;
   display: block;
-  float: left;
-  margin: 20px auto 20px auto;
+  margin: 0 auto 20px auto;
   text-align: center;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -786,8 +785,9 @@ h3 {
 }
 .single .horchata__img {
   width: 100%;
+  height: auto;
+  display: block;
 /* padding 0 0 100% 0 */
-  height: 50vh;
   -webkit-border-radius: 10px 0 0 0;
   border-radius: 10px 0 0 0;
   -webkit-background-size: cover;

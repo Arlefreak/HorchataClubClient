@@ -24,7 +24,7 @@ const Single = ({
 
     return (
         <div className="single card">
-            <div className="horchata__img" style={style}></div>
+            <img className="horchata__img" src={single.image}></img>
             <div className="horchata__body">
                 <h3>{single.name}</h3>
                 <span className="grade">

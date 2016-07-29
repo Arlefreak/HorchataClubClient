@@ -30050,7 +30050,11 @@ var Row = function Row(_ref) {
         _react2.default.createElement(
             'div',
             { className: 'card' },
-            _react2.default.createElement('img', { className: 'horchata__img', src: image }),
+            _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/horchatas/' + id },
+                _react2.default.createElement('img', { className: 'horchata__img', src: image })
+            ),
             _react2.default.createElement(
                 'div',
                 { className: 'horchata__body' },
@@ -30147,7 +30151,7 @@ var Single = function Single(_ref) {
     return _react2.default.createElement(
         'div',
         { className: 'single card' },
-        _react2.default.createElement('div', { className: 'horchata__img', style: style }),
+        _react2.default.createElement('img', { className: 'horchata__img', src: single.image }),
         _react2.default.createElement(
             'div',
             { className: 'horchata__body' },

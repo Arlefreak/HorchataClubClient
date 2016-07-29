@@ -28,10 +28,10 @@ const Row = ({
     return (
         <li className="row">
             <div className="card">
-                {/* <Link to={`/horchatas/${id}`}> */}
+                <Link to={`/horchatas/${id}`}>
                     {/* <div className="horchata__img" style={style}></div> */}
                     <img className="horchata__img" src={ image }></img>
-                {/* </Link> */}
+                </Link>
                 <div className="horchata__body">
                     <h3>
                         <Link to={`/horchatas/${id}`}>
