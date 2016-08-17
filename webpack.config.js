@@ -1,5 +1,9 @@
 var path = require('path');
 
+var Dashboard = require('webpack-dashboard');
+var DashboardPlugin = require('webpack-dashboard/plugin');
+var dashboard = new Dashboard();
+
 module.exports = {
     context: __dirname + '/src',
     entry: {
@@ -29,5 +33,8 @@ module.exports = {
     stylus: {
         use: [require('nib')()],
         import: ['~nib/lib/nib/index.styl']
-    }
+    },
+    plugins: [
+        new DashboardPlugin(dashboard.setData)
+    ],
 };
