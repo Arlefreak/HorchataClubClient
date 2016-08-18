@@ -152,14 +152,11 @@ gulp.task('react', function() {
     runSequence('js', 'browserify');
 });
 
-gulp.task('init', ['css', 'bower', 'react', 'img', 'html', 'files', 'json']);
+gulp.task('init', ['css', 'img', 'files', 'json']);
 
-gulp.task('watch', ['css', 'react', 'img', 'html', 'connect'], function() {
+gulp.task('watch', ['css', 'img'], function() {
     gulp.watch('src/css/**/*.styl', ['css']);
-    gulp.watch('src/js/**/*.js', ['react']);
-    gulp.watch('src/js/**/*.jsx', ['react']);
     gulp.watch('src/img/**/*', ['img']);
-    gulp.watch('src/*.html', ['html']);
 });
 
 gulp.task('default', function() {
