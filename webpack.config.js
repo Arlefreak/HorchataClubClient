@@ -52,12 +52,12 @@ module.exports = {
     devServer: {
         hot: true,
         inline: true,
-        contentBase: './'
+        contentBase: './public/'
     },
 
     plugins: [
         bowerPlugin,
-        new DashboardPlugin({}),
+        // new DashboardPlugin({}),
         new webpack.HotModuleReplacementPlugin()
     ],
 };
