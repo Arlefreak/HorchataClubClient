@@ -1,20 +1,30 @@
 var path = require('path');
-
-var Dashboard = require('webpack-dashboard');
+var webpack = require("webpack");
 var DashboardPlugin = require('webpack-dashboard/plugin');
-var dashboard = new Dashboard();
+
+const bowerPlugin = new webpack.ResolverPlugin(
+    new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
+)
 
 module.exports = {
-    context: __dirname + '/src',
-    entry: {
-        javascript: "./js/app.js",
-        html: "./index.html",
+    resolve: {
+        modulesDirectories: ['node_modules', 'bower_components']
     },
+
+    context: __dirname + '/src',
+
+    entry: [
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/dev-server',
+        "./js/app.js",
+        "./index.html",
+    ],
 
     output: {
         filename: "app.js",
-        path: __dirname + "/dist",
+        path: __dirname + "/public",
     },
+
     module: {
         loaders: [
             {
@@ -27,14 +37,27 @@ module.exports = {
             },{
                 test: /\.styl$/,
                 loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
+            },{
+                test: /particles\.js/,
+                loader: 'exports?particlesJS=window.particlesJS,pJSDom=window.pJSDom'
             }
         ]
     },
+
     stylus: {
         use: [require('nib')()],
         import: ['~nib/lib/nib/index.styl']
     },
+
+    devServer: {
+        hot: true,
+        inline: true,
+        contentBase: './'
+    },
+
     plugins: [
-        new DashboardPlugin(dashboard.setData)
+        bowerPlugin,
+        new DashboardPlugin({}),
+        new webpack.HotModuleReplacementPlugin()
     ],
 };

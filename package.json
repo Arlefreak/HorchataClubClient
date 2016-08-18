@@ -4,7 +4,7 @@
   "description": "HorchataClub FrontEndClient",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline"
+    "start": "webpack-dashboard -- webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "react": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
     "react-dom": "^15.0.1",
+    "react-easy-emoji": "^1.0.4",
     "react-ga": "^2.1.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.0.0",
@@ -60,6 +61,7 @@
     "eslint": "^3.0.1",
     "eslint-plugin-react": "^6.1.1",
     "estraverse-fb": "^1.3.1",
+    "exports-loader": "^0.6.3",
     "file-loader": "^0.9.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
@@ -91,7 +93,7 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "webpack": "^1.13.1",
-    "webpack-dashboard": "0.0.1",
+    "webpack-dashboard": "0.1.1",
     "webpack-dev-server": "^1.14.1"
   }
 }

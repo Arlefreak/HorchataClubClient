@@ -2,7 +2,10 @@
 /*eslint react/no-danger: 0*/
 
 import React, { PropTypes } from 'react';
+import emoji from 'react-easy-emoji'
+
 function createMarkup(s) { return {__html: s}; };
+
 const Single = ({
     isFetching,
     single
@@ -13,29 +16,33 @@ const Single = ({
         backgroundImage: url
     };
 
-    var gradeArr = [];
+    var gradeEmoji = '🙅🏻';
+        switch(single.grade){
+            case 0:
+                gradeEmoji = '🙅';
+                break;
+            case 1:
+                gradeEmoji = '🙎';
+                break;
+            case 2:
+                gradeEmoji = '💁';
+                break;
+            default:
+                gradeEmoji = '🙅';
+                break;
+        }
+
     var locationArr = single.location.split(',');
     var googleLink = 'https://google.com/maps/?q=' + locationArr[0] + ',' + locationArr[1];
     var mapLink = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBWxPXR1jBEg97WE1X_zpcGZPzmDxOiqS4&q=' + locationArr[0] + ',' + locationArr[1];
     {/* var mapLink = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + locationArr[0] + ',' + locationArr[1] +  '&radius=5000&sensor=true&key=AIzaSyBNoofXBA50Y9SGLbZ1JxBsnvSEoUcnUiA'; */}
-    for(var i = 0; i < single.grade; i++){
-        gradeArr.push(<i key={i} className="fa fa-star"/>);
-    }
 
     return (
         <div className="single card">
             <img className="horchata__img" src={single.image}></img>
             <div className="horchata__body">
                 <h3>{single.name}</h3>
-                <span className="grade">
-                    {
-                        gradeArr.map(function(item, i){
-                            return(
-                                item
-                            );
-                        })
-                    }
-                </span>
+                <span className="grade">{ emoji(gradeEmoji)}</span>
                 <div className="description">
                     <div dangerouslySetInnerHTML={createMarkup(single.description)} />
                 </div>
