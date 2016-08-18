@@ -1,6 +1,7 @@
 /*eslint camelcase: 0*/
 import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
+import emoji from 'react-easy-emoji'
 
 const Row = ({
     id,
@@ -18,18 +19,28 @@ const Row = ({
         backgroundImage: url
     };
 
-    var gradeArr = [];
+    var gradeEmoji = '🙅🏻'
+        switch(grade){
+            case 0:
+                gradeEmoji = '🙅';
+                break;
+            case 1:
+                gradeEmoji = '🙎';
+                break;
+            case 2:
+                gradeEmoji = '💁';
+                break;
+            default:
+                gradeEmoji = '🙅';
+                break;
+        }
     var locationArr = location.split(',');
     var googleLink = 'https://google.com/maps/?q=' + locationArr[0] + ',' + locationArr[1];
-    for(var i = 0; i < grade; i++){
-        gradeArr.push(<i key={i} className="fa fa-star"/>);
-    }
 
     return (
         <li className="row">
             <div className="card">
                 <Link to={`/horchatas/${id}`}>
-                    {/* <div className="horchata__img" style={style}></div> */}
                     <img className="horchata__img" src={ image }></img>
                 </Link>
                 <div className="horchata__body">
@@ -38,15 +49,7 @@ const Row = ({
                             {name}
                         </Link>
                     </h3>
-                    <div className="grade">
-                        {
-                            gradeArr.map(function(item, i){
-                                return(
-                                    item
-                                );
-                            })
-                        }
-                    </div>
+                    <span className="grade">{ emoji(gradeEmoji)}</span>
                     <div className="description">
                         <p>{small_text}</p>
                     </div>

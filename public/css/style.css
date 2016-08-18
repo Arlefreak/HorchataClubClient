@@ -204,7 +204,6 @@ textarea {
 .halfCircle-up {
   height: 20px;
   width: 40px;
-  -webkit-border-radius: 40px 40px 0 0;
   border-radius: 40px 40px 0 0;
   -moz-border-radius: 40px 40px 0 0;
   -webkit-border-radius: 40px 40px 0 0;
@@ -213,7 +212,6 @@ textarea {
 .halfCircle-down {
   height: 20px;
   width: 40px;
-  -webkit-border-radius: 0 0 40px 40px;
   border-radius: 0 0 40px 40px;
   -moz-border-radius: 0 0 40px 40px;
   -webkit-border-radius: 0 0 40px 40px;
@@ -222,7 +220,6 @@ textarea {
 .halfCircle-right {
   height: 40px;
   width: 20px;
-  -webkit-border-radius: 0 40px 40px 0;
   border-radius: 0 40px 40px 0;
   -moz-border-radius: 0 40px 40px 0;
   -webkit-border-radius: 0 40px 40px 0;
@@ -231,7 +228,6 @@ textarea {
 .halfCircle-left {
   height: 40px;
   width: 20px;
-  -webkit-border-radius: 40px 0 0 40px;
   border-radius: 40px 0 0 40px;
   -moz-border-radius: 40px 0 0 40px;
   -webkit-border-radius: 40px 0 0 40px;
@@ -445,7 +441,6 @@ footer {
 }
 .signal {
   border: 5px solid #c76035;
-  -webkit-border-radius: 50%;
   border-radius: 50%;
   margin: auto;
   height: 90%;
@@ -672,7 +667,6 @@ h3 {
   background: #fff;
   -webkit-box-shadow: 0 1px 2px #aaa;
   box-shadow: 0 1px 2px #aaa;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
 }
 .horchata-list {
@@ -728,7 +722,6 @@ h3 {
 }
 .row .horchata__img {
   width: 100%;
-  -webkit-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -771,6 +764,10 @@ h3 {
   display: flex;
   width: 100%;
   margin: 10px auto 10px;
+}
+.row .grade img {
+  width: 1.5em !important;
+  height: 1.5em !important;
 }
 .row h3 {
   width: 100%;
@@ -853,7 +850,6 @@ h3 {
   height: auto;
   display: block;
 /* padding 0 0 100% 0 */
-  -webkit-border-radius: 10px 0 0 0;
   border-radius: 10px 0 0 0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -867,7 +863,6 @@ h3 {
   height: 50vh;
   display: block;
   margin: 0px auto 0 auto;
-  -webkit-border-radius: 0px 0 10px 0;
   border-radius: 0px 0 10px 0;
 }
 .single .horchata__map iframe {
@@ -888,6 +883,10 @@ h3 {
 .single .horchata__body .address {
   padding: 10px 0 0 0;
   border-top: 1px solid #c76035;
+}
+.single .horchata__body .grade img {
+  width: 1.5em !important;
+  height: 1.5em !important;
 }
 .single .horchata__body p {
   width: 100%;
