@@ -7,7 +7,7 @@ class Header extends React.Component {
             <header>
                 <div className="wrapper">
                     <IndexLink to="/" className="logo" activeClassName="active">
-                        <img src="/img/logo.svg" alt="HORCHATACLUB"/>
+                        <img src={require('../../img/logo.svg')} alt="HORCHATACLUB"/>
                     </IndexLink>
                     <nav>
                         <ul>

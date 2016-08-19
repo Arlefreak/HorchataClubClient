@@ -58,6 +58,10 @@ module.exports = {
             },{
                 test: /\.(css|styl)$/,
                 loader: ExtractTextPlugin.extract(['css-loader', 'stylus-loader'])
+            },{
+                test: /\.svg$/,
+                loader: 'file',
+                include: path.join(__dirname, '/src/img/'),
             }
         ]
     },

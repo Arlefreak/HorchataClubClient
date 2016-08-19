@@ -36,6 +36,10 @@ var config = {
             },{
                 test: /\.styl$/,
                 loader: 'style-loader!css-loader!stylus-loader'
+            },{
+                test: /\.svg$/,
+                loader: 'file',
+                include: path.join(__dirname, '/src/img/'),
             }
         ]
     },
