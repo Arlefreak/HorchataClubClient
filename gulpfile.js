@@ -152,10 +152,9 @@ gulp.task('react', function() {
     runSequence('js', 'browserify');
 });
 
-gulp.task('init', ['css', 'img', 'files', 'json']);
+gulp.task('init', ['img', 'json']);
 
-gulp.task('watch', ['css', 'img'], function() {
-    gulp.watch('src/css/**/*.styl', ['css']);
+gulp.task('watch', ['img'], function() {
     gulp.watch('src/img/**/*', ['img']);
 });
 

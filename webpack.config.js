@@ -1,46 +1,26 @@
-var Webpack = require('webpack');
-var path = require('path');
-var nodeModulesPath = path.resolve(__dirname, 'node_modules');
-var buildPath = path.resolve(__dirname, 'public', 'build');
-var mainPath = path.resolve(__dirname, 'src', 'js/app.js');
+'use strict';
 
-const bowerPlugin = new Webpack.ResolverPlugin(
-    new Webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
-)
+var webpack = require('webpack');
+var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
     resolve: {
         modulesDirectories: ['node_modules', 'bower_components']
     },
 
-    // Makes sure errors in console map to the correct file
-    // and line number
-    devtool: 'eval',
+    devtool: 'eval-source-map',
     entry: [
-
-        // For hot style updates
-        'webpack/hot/dev-server',
-
-        // The script refreshing the browser on none hot updates
-        'webpack-dev-server/client?http://localhost:8080',
-
-        // Our application
-        mainPath
+        'webpack-hot-middleware/client?reload=true',
+        path.join(__dirname, 'src/main.js')
     ],
+
     output: {
-
-        // We need to give Webpack a path. It does not actually need it,
-        // because files are kept in memory in webpack-dev-server, but an
-        // error will occur if nothing is specified. We use the buildPath
-        // as that points to where the files will eventually be bundled
-        // in production
-        path: buildPath,
-        filename: 'bundle.js',
-
-        // Everything related to Webpack should go through a build path,
-        // localhost:3000/build. That makes proxying easier to handle
-        publicPath: '/build/'
+        path: path.join(__dirname, '/public/'),
+        filename: '[name].js',
+        publicPath: '/'
     },
+
     module: {
         loaders: [
             {
@@ -48,14 +28,14 @@ var config = {
                 exclude: /(node_modules|bower_components)/,
                 loaders: ['react-hot', 'babel?presets[]=es2015']
             },{
-                test: /\.html$/,
-                loader: 'file?name=[name].[ext]',
-            },{
-                test: /\.styl$/,
-                loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
-            },{
                 test: /particles\.js/,
                 loader: 'exports?particlesJS=window.particlesJS,pJSDom=window.pJSDom'
+            },{
+                test: /\.css$/,
+                loader:"style-loader!css-loader"
+            },{
+                test: /\.styl$/,
+                loader: 'style-loader!css-loader!stylus-loader'
             }
         ]
     },
@@ -65,11 +45,21 @@ var config = {
         import: ['~nib/lib/nib/index.styl']
     },
 
-    // We have to manually add the Hot Replacement plugin when running
-    // from Node
     plugins: [
-        bowerPlugin,
-        new Webpack.HotModuleReplacementPlugin()
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            inject: 'body',
+            filename: 'index.html'
+        }),
+        new webpack.ResolverPlugin(
+            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
+        ),
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('development')
+        })
     ]
 };
 

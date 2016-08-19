@@ -1,25 +1,51 @@
-var Webpack = require('webpack');
+'use strict';
+
 var path = require('path');
-var nodeModulesPath = path.resolve(__dirname, 'node_modules');
-var buildPath = path.resolve(__dirname, 'public', 'build');
-var mainPath = path.resolve(__dirname, 'src', 'js/app.js');
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var StatsPlugin = require('stats-webpack-plugin');
 
-const bowerPlugin = new Webpack.ResolverPlugin(
-    new Webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
-)
-
-var config = {
+module.exports = {
     resolve: {
         modulesDirectories: ['node_modules', 'bower_components']
     },
 
-    // We change to normal source mapping
-    devtool: 'source-map',
-    entry: mainPath,
+    entry: [
+        path.join(__dirname, 'src/main.js')
+    ],
+
     output: {
-        path: buildPath,
-        filename: 'bundle.js'
+        path: path.join(__dirname, '/public/'),
+        filename: '[name]-[hash].min.js',
+        publicPath: '/'
     },
+
+    plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.ResolverPlugin(
+            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
+        ),
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            inject: 'body',
+            filename: 'index.html'
+        }),
+        new ExtractTextPlugin('[name]-[hash].min.css'),
+        new webpack.optimize.UglifyJsPlugin({
+            compressor: {
+                warnings: false,
+                screw_ie8: true
+            }
+        }),
+        new StatsPlugin('webpack.stats.json', {
+            source: false,
+            modules: false
+        }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        })
+    ],
     module: {
         loaders: [
             {
@@ -27,14 +53,11 @@ var config = {
                 exclude: /(node_modules|bower_components)/,
                 loaders: ['react-hot', 'babel?presets[]=es2015']
             },{
-                test: /\.html$/,
-                loader: 'file?name=[name].[ext]',
-            },{
-                test: /\.styl$/,
-                loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
-            },{
                 test: /particles\.js/,
                 loader: 'exports?particlesJS=window.particlesJS,pJSDom=window.pJSDom'
+            },{
+                test: /\.(css|styl)$/,
+                loader: ExtractTextPlugin.extract(['css-loader', 'stylus-loader'])
             }
         ]
     },
@@ -43,10 +66,4 @@ var config = {
         use: [require('nib')()],
         import: ['~nib/lib/nib/index.styl']
     },
-
-    plugins: [
-        bowerPlugin
-    ]
 };
-
-module.exports = config;
