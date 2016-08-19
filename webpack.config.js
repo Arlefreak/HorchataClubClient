@@ -14,8 +14,8 @@ module.exports = {
     context: __dirname + '/src',
 
     entry: [
-        'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/dev-server',
+        // 'webpack-dev-server/client?http://localhost:8080',
+        // 'webpack/hot/dev-server',
         "./js/app.js",
         "./index.html",
     ],
@@ -49,15 +49,15 @@ module.exports = {
         import: ['~nib/lib/nib/index.styl']
     },
 
-    devServer: {
-        hot: true,
-        inline: true,
-        contentBase: './public/'
-    },
+    // devServer: {
+    //     hot: true,
+    //     inline: true,
+    //     contentBase: './public/'
+    // },
 
     plugins: [
         bowerPlugin,
         // new DashboardPlugin({}),
-        new webpack.HotModuleReplacementPlugin()
+        // new webpack.HotModuleReplacementPlugin()
     ],
 };
