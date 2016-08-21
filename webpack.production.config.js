@@ -7,12 +7,14 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
 
 module.exports = {
+    context: __dirname,
     resolve: {
         modulesDirectories: ['node_modules', 'bower_components']
     },
 
     entry: [
-        path.join(__dirname, 'src/main.js')
+        path.join(__dirname, 'src/main.js'),
+        path.join(__dirname, 'src/index.html')
     ],
 
     output: {
@@ -21,16 +23,48 @@ module.exports = {
         publicPath: '/'
     },
 
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loaders: ['babel?presets[]=es2015']
+            },{
+                test: /particles\.js/,
+                loader: 'exports?particlesJS=window.particlesJS,pJSDom=window.pJSDom'
+            },{
+                test: /\.(css|styl)$/,
+                loader: ExtractTextPlugin.extract(['css-loader', 'stylus-loader'])
+            },{
+                test: /\.html/,
+                loader: 'html'
+            },{
+                test: /\.(ico|png|eot|svg|ttf|woff|woff2)$/,
+                loader: 'file?name=img/[name]-[hash:6].[ext]',
+                include: path.join(__dirname, '/src/img/')
+            }
+        ]
+    },
+
+    stylus: {
+        use: [require('nib')()],
+        import: ['~nib/lib/nib/index.styl']
+    },
+
+    htmlLoader: {
+        attrs: ['img:src', 'link:href']
+    },
+
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.ResolverPlugin(
-            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
-        ),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             inject: 'body',
             filename: 'index.html'
         }),
+        new webpack.ResolverPlugin(
+            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
+        ),
+        new webpack.optimize.OccurenceOrderPlugin(),
         new ExtractTextPlugin('[name]-[hash].min.css'),
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
@@ -46,28 +80,4 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
     ],
-    module: {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
-                loaders: ['react-hot', 'babel?presets[]=es2015']
-            },{
-                test: /particles\.js/,
-                loader: 'exports?particlesJS=window.particlesJS,pJSDom=window.pJSDom'
-            },{
-                test: /\.(css|styl)$/,
-                loader: ExtractTextPlugin.extract(['css-loader', 'stylus-loader'])
-            },{
-                test: /\.svg$/,
-                loader: 'file',
-                include: path.join(__dirname, '/src/img/'),
-            }
-        ]
-    },
-
-    stylus: {
-        use: [require('nib')()],
-        import: ['~nib/lib/nib/index.styl']
-    },
 };

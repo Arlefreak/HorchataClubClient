@@ -5,6 +5,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
+    context: __dirname,
     resolve: {
         modulesDirectories: ['node_modules', 'bower_components']
     },
@@ -12,7 +13,8 @@ var config = {
     devtool: 'eval-source-map',
     entry: [
         'webpack-hot-middleware/client?reload=true',
-        path.join(__dirname, 'src/main.js')
+        path.join(__dirname, 'src/main.js'),
+        path.join(__dirname, 'src/index.html')
     ],
 
     output: {
@@ -32,14 +34,17 @@ var config = {
                 loader: 'exports?particlesJS=window.particlesJS,pJSDom=window.pJSDom'
             },{
                 test: /\.css$/,
-                loader:"style-loader!css-loader"
+                loader:'style-loader!css-loader'
             },{
                 test: /\.styl$/,
                 loader: 'style-loader!css-loader!stylus-loader'
             },{
-                test: /\.svg$/,
-                loader: 'file',
-                include: path.join(__dirname, '/src/img/'),
+                test: /\.html/,
+                loader: 'html',
+            },{
+                test: /\.(ico|png|eot|svg|ttf|woff|woff2)$/,
+                loader: 'file?name=[name]-[hash:6].[ext]',
+                include: path.join(__dirname, '/src/img/')
             }
         ]
     },
@@ -47,6 +52,10 @@ var config = {
     stylus: {
         use: [require('nib')()],
         import: ['~nib/lib/nib/index.styl']
+    },
+
+    htmlLoader: {
+        attrs: ['img:src', 'link:href']
     },
 
     plugins: [
