@@ -12,7 +12,6 @@ const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = parseInt(process.env.PORT, 10) || 8000;
 const app = express();
 
-app.use(express.static(__dirname + '/public'));
 if (isDeveloping) {
     const compiler = webpack(config);
     const middleware = webpackMiddleware(compiler, {
@@ -31,6 +30,7 @@ if (isDeveloping) {
     app.use(middleware);
     app.use(webpackHotMiddleware(compiler));
     app.get('*', function response(req, res) {
+        console.log(path.join(__dirname, 'src/index.html'));
         res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'src/index.html')));
         res.end();
     });
@@ -42,8 +42,9 @@ if (isDeveloping) {
 }
 
 app.listen(port, '0.0.0.0', function onStart(err) {
+    var info = `==> Listening on port ${port}. Open up http://0.0.0.0:${port}/ DEV: ${isDeveloping}`
     if (err) {
         console.log(err);
     }
-    console.info('==> Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.', port, port);
+    console.info(info);
 });

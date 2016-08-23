@@ -3,6 +3,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 var config = {
     context: __dirname,
@@ -13,8 +14,7 @@ var config = {
     devtool: 'eval-source-map',
     entry: [
         'webpack-hot-middleware/client?reload=true',
-        path.join(__dirname, 'src/main.js'),
-        path.join(__dirname, 'src/index.html')
+        path.join(__dirname, 'src/main.js')
     ],
 
     output: {
@@ -39,9 +39,6 @@ var config = {
                 test: /\.styl$/,
                 loader: 'style-loader!css-loader!stylus-loader'
             },{
-                test: /\.html/,
-                loader: 'html',
-            },{
                 test: /\.(ico|png|eot|svg|ttf|woff|woff2)$/,
                 loader: 'file?name=[name]-[hash:6].[ext]',
                 include: path.join(__dirname, '/src/img/')
@@ -54,11 +51,12 @@ var config = {
         import: ['~nib/lib/nib/index.styl']
     },
 
-    htmlLoader: {
-        attrs: ['img:src', 'link:href']
-    },
-
     plugins: [
+        new FaviconsWebpackPlugin({
+            logo: './src/img/favicon.png',
+            background: '#C76035',
+            title: 'Horchata.club',
+        }),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             inject: 'body',

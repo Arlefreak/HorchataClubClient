@@ -5,6 +5,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
     context: __dirname,
@@ -13,8 +14,7 @@ module.exports = {
     },
 
     entry: [
-        path.join(__dirname, 'src/main.js'),
-        path.join(__dirname, 'src/index.html')
+        path.join(__dirname, 'src/main.js')
     ],
 
     output: {
@@ -36,9 +36,6 @@ module.exports = {
                 test: /\.(css|styl)$/,
                 loader: ExtractTextPlugin.extract(['css-loader', 'stylus-loader'])
             },{
-                test: /\.html/,
-                loader: 'html'
-            },{
                 test: /\.(ico|png|eot|svg|ttf|woff|woff2)$/,
                 loader: 'file?name=img/[name]-[hash:6].[ext]',
                 include: path.join(__dirname, '/src/img/')
@@ -51,12 +48,14 @@ module.exports = {
         import: ['~nib/lib/nib/index.styl']
     },
 
-    htmlLoader: {
-        attrs: ['img:src', 'link:href']
-    },
-
     plugins: [
+        new FaviconsWebpackPlugin({
+            logo: './src/img/favicon.png',
+            background: '#C76035',
+            title: 'Horchata.club',
+        }),
         new HtmlWebpackPlugin({
+            hash: true,
             template: 'src/index.html',
             inject: 'body',
             filename: 'index.html'
