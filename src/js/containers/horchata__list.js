@@ -3,7 +3,7 @@ import List from '../components/list.jsx';
 import { apiFetchIfNeeded } from '../actions/actions';
 
 const mapStateToProps = (state) => {
-    const { apiCalls } = state;
+    const { apiCalls, visibleItems, nameFilter } = state;
     const {
         isFetching,
         items
@@ -12,9 +12,14 @@ const mapStateToProps = (state) => {
         items: []
     };
 
+    let filteredItems = visibleItems;
+    if(visibleItems.length === 0 && nameFilter.filter  === ''){
+        filteredItems = items;
+    }
+
     return {
         isFetching,
-        items
+        items: filteredItems
     };
 };
 

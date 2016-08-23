@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
+import Search from '../containers/search';
 
 class Header extends React.Component {
     render() {
@@ -14,6 +15,7 @@ class Header extends React.Component {
                             <li><Link to="/about" activeClassName="active">About</Link></li>
                         </ul>
                     </nav>
+                    <Search></Search>
                 </div>
             </header>
         );

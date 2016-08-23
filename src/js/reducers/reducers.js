@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { API_REQUEST, API_RESPONSE, FILE_REQUEST, FILE_RESPONSE  } from '../actions/actions';
+import { API_REQUEST, API_RESPONSE, FILE_REQUEST, FILE_RESPONSE, SET_NAME_FILTER, CLEAR_NAME_FILTER, SET_VISIBLE_ITEMS } from '../actions/actions';
 
 function apiCalls(state = {}, action) {
     switch (action.type) {
@@ -63,9 +63,36 @@ const file = (state = {
     }
 };
 
+const nameFilter = (state = {
+    filter: ''
+}, action) => {
+    switch (action.type) {
+        case SET_NAME_FILTER:
+            return {
+                filter: action.filter
+            };
+        default:
+            return state;
+    }
+};
+
+const visibleItems = (state = [], action) => {
+    switch (action.type){
+        case SET_VISIBLE_ITEMS:
+            return action.items;
+            break;
+        default:
+            return state;
+            break;
+    }
+};
+
+
 const horchataApp = combineReducers({
     apiCalls,
-    fileCalls
+    fileCalls,
+    nameFilter,
+    visibleItems
 });
 
 export default horchataApp;
