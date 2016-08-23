@@ -137,7 +137,7 @@ function filterByName(items, name){
         }else{
             var neitems = items.filter((t,i) => {
                 return(
-                    t.name.toLowerCase().indexOf(name) > -1
+                    t.name.toLowerCase().indexOf(name.toLowerCase()) > -1
                 );
             });
             return neitems;
