@@ -2,6 +2,7 @@
 import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 import emoji from 'react-easy-emoji'
+import Grade from './grade.jsx';
 
 const Row = ({
     id,
@@ -19,21 +20,6 @@ const Row = ({
         backgroundImage: url
     };
 
-    var gradeEmoji = '🙅🏻'
-        switch(grade){
-            case 0:
-                gradeEmoji = '🙅';
-                break;
-            case 1:
-                gradeEmoji = '🙎';
-                break;
-            case 2:
-                gradeEmoji = '💁';
-                break;
-            default:
-                gradeEmoji = '🙅';
-                break;
-        }
     var locationArr = location.split(',');
     var googleLink = 'https://google.com/maps/?q=' + locationArr[0] + ',' + locationArr[1];
 
@@ -49,7 +35,7 @@ const Row = ({
                             {name}
                         </Link>
                     </h3>
-                    <span className="grade">{ emoji(gradeEmoji)}</span>
+                    <Grade grade={grade}></Grade>
                     <div className="description">
                         <p>{small_text}</p>
                     </div>
