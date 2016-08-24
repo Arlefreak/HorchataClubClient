@@ -40,7 +40,7 @@ var config = {
                 loader: 'style-loader!css-loader!stylus-loader'
             },{
                 test: /\.(ico|png|eot|svg|ttf|woff|woff2)$/,
-                loader: 'file?name=[name]-[hash:6].[ext]',
+                loader: 'file',
                 include: path.join(__dirname, '/src/img/')
             }
         ]
