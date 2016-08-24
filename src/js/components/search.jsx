@@ -8,7 +8,7 @@ class Search extends Component {
                 <input 
                     type='text'
                     ref='filterInput'
-                    placeholder='Type to filter..'
+                    placeholder='Buscar ...'
                     value={filterVal}
                     onChange={() => {
                         onSearchUpdate(this.refs.filterInput.value)
