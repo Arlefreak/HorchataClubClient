@@ -42,6 +42,10 @@ var config = {
                 test: /\.(ico|png|eot|svg|ttf|woff|woff2)$/,
                 loader: 'file',
                 include: path.join(__dirname, '/src/img/')
+            },{
+                test: /\.json$/,
+                loader: 'file',
+                include: path.join(__dirname, '/src/json/')
             }
         ]
     },

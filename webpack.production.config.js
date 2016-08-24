@@ -36,6 +36,10 @@ module.exports = {
                 test: /\.(css|styl)$/,
                 loader: ExtractTextPlugin.extract(['css-loader', 'stylus-loader'])
             },{
+                test: /\.json$/,
+                loader: 'file',
+                include: path.join(__dirname, '/src/json/')
+            },{
                 test: /\.(ico|png|eot|svg|ttf|woff|woff2)$/,
                 loader: 'file?name=img/[name]-[hash:6].[ext]',
                 include: path.join(__dirname, '/src/img/')
