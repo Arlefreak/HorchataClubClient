@@ -15,7 +15,6 @@ const Row = ({
     location
 }) => {
     var url = 'url(' + image + ')';
-    // var url = 'url()';
     var style = {
         backgroundImage: url
     };

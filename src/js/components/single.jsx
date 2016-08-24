@@ -3,6 +3,7 @@
 
 import React, { PropTypes } from 'react';
 import emoji from 'react-easy-emoji'
+import Grade from '../components/grade.jsx';
 
 function createMarkup(s) { return {__html: s}; };
 
@@ -11,26 +12,9 @@ const Single = ({
     single
 }) => {
     var url = 'url(' + single.image + ')';
-    // var url = 'url()';
     var style = {
         backgroundImage: url
     };
-
-    var gradeEmoji = '🙅🏻';
-        switch(single.grade){
-            case 0:
-                gradeEmoji = '🙅';
-                break;
-            case 1:
-                gradeEmoji = '🙎';
-                break;
-            case 2:
-                gradeEmoji = '💁';
-                break;
-            default:
-                gradeEmoji = '🙅';
-                break;
-        }
 
     var locationArr = single.location.split(',');
     var googleLink = 'https://google.com/maps/?q=' + locationArr[0] + ',' + locationArr[1];
@@ -42,7 +26,7 @@ const Single = ({
             <img className="horchata__img" src={single.image}></img>
             <div className="horchata__body">
                 <h3>{single.name}</h3>
-                <span className="grade">{ emoji(gradeEmoji)}</span>
+                <Grade grade={single.grade}></Grade>
                 <div className="description">
                     <div dangerouslySetInnerHTML={createMarkup(single.description)} />
                 </div>
