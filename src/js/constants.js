@@ -1,4 +1,4 @@
-const APIURL = 'http://api.horchata.club/';
+const APIURL = 'https://api.horchata.club/';
 module.exports = {
     APIURL: APIURL
 };
