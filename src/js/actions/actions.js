@@ -151,7 +151,7 @@ function filterByName(items, name){
 export function filterItems(){
     return function (dispatch, getState){
         const state = getState() || {};
-        const apiCalls = state.apiCalls || []
+        const apiCalls = state.apiCalls || [];
         const horchata = apiCalls['horchata'] || {};
         const items = horchata.items || [];
         const nameFilter = state['nameFilter'].filter || '';
