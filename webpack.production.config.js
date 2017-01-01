@@ -65,7 +65,7 @@ module.exports = {
             filename: 'index.html'
         }),
         new webpack.ResolverPlugin(
-            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
+            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('.bower.json', ['main'])
         ),
         new webpack.optimize.OccurenceOrderPlugin(),
         new ExtractTextPlugin('[name]-[hash].min.css'),

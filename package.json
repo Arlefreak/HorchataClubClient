@@ -36,6 +36,7 @@
     "favicons-webpack-plugin": "0.0.6",
     "html-webpack-plugin": "^2.24.1",
     "http": "0.0.0",
+    "https": "^1.0.0",
     "method-override": "^2.3.6",
     "nib": "^1.1.2",
     "node-tweet-stream": "^2.0.1",
